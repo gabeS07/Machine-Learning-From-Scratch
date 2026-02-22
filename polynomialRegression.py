@@ -51,7 +51,7 @@ def linear_regression(features, labels, learning_rate, epochs):
 
     # training loop
     for epoch in range(epochs):
-        i = np.random.randint(0,len(features[0])) # choose random point
+        i = np.random.randint(0,len(features[0]-1)) # choose random point
         feature = features[:, i] # gets the i-th column (so X^2, X^3, X, etc) in features, which would be the weights for that point
         label = labels[i]
         bias, weights = square_trick(bias, weights, feature, label, learning_rate)
@@ -72,4 +72,5 @@ def predict(feature):
 ax.plot(X, predict(features), color='red') # plot line of best fit
 
 plt.show()
+
 
